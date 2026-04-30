@@ -1,3 +1,5 @@
+package productos;
+
 public abstract class Producto {
     private int serie;
     public Producto(int serie){

@@ -1,3 +1,5 @@
+package monedas;
+
 public class Moneda100 extends Moneda {
     public Moneda100(){
         super();
