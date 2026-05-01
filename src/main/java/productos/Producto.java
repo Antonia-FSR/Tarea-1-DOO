@@ -1,5 +1,10 @@
 package productos;
 
+/**
+ * Clase abstracta que define las características de los productos dispensados por el expendedor.
+ *
+ * @author Antonia-FSR
+ */
 public abstract class Producto {
     private int serie;
     public Producto(int serie){

@@ -1,5 +1,13 @@
 package expendedor;
 
+/**
+ * Enumeración que define el catálogo de productos disponibles en el {@link Expendedor}.
+ * Cada constate asocia un precio y un codigo de selección con el nombre de un producto.
+ *
+ * @author Antonia-FSR
+ * @see Expendedor
+ */
+
 public enum Inventario {
     COCA_COLA(1000, 1),
     SPRITE(1000, 2),

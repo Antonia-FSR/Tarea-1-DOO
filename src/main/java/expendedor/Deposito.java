@@ -1,5 +1,13 @@
 package expendedor;
 
+/**
+ * Clase generica que representa un deposito que puede almacenar productos.
+ * Utilizada para gestionar los productos y el vuelto.
+ *
+ * @author Antonia-FSR
+ * @param <T> Tipo de dato que se almacenará en el deposito. ({@link productos.Bebida}, {@link productos.Dulce}, {@link monedas.Moneda})
+ */
+
 import java.util.ArrayList;
 public class Deposito<T> {
     private ArrayList<T> lista;

@@ -4,7 +4,15 @@ import productos.*;
 import monedas.*;
 import excepciones.*;
 
-
+/**
+ * Clase que simula expendedor de productos.
+ * Gestiona depositos con los productos que se pueden comprar, acepta pagos con monedas.
+ * Calcula el vuelto en monedas de 100.
+ *
+ * @author jaocSec
+ * @see productos.Producto
+ * @see monedas.Moneda
+ */
 public class Expendedor {
     private Deposito<Bebida> cocacolaD;
     private Deposito<Bebida> spriteD;
@@ -13,6 +21,10 @@ public class Expendedor {
     private Deposito<Dulce> super8D;
     private Deposito<Moneda> monVU;
 
+    /**
+     * Constructor que inicializa cada deposito y los llena con una cantidad dada.
+     * @param cantidad Número de unidades de cada producto que cada deposito contendrá.
+     */
     public Expendedor(int cantidad){
         this.cocacolaD= new Deposito<Bebida>();
         this.spriteD= new Deposito<Bebida>();
@@ -31,6 +43,15 @@ public class Expendedor {
         }
     }
 
+    /**
+     * Procesa la compra de un producto, recibiendo la elección y una moneda de pago.
+     * @param m Moneda con la que se realizará el pago
+     * @param eleccion  Codigo con el que el producto elegido se identifica en {@link Inventario}
+     * @return producto solicitado si la transaccion es completada. {@link Producto}
+     * @throws PagoIncorrectoException Si se intenta pagar con una moneda nula.
+     * @throws PagoInsuficienteException Si se intenta pagar con una moneda de valor menor al del precio del producto.
+     * @throws NoHayProductoException Si el codigo de la elección no existe o el deposito está vacio.
+     */
     public Producto comprarProducto(Moneda m, int eleccion) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
         Producto p= null;
         int precioProducto= 0;
@@ -97,6 +118,11 @@ public class Expendedor {
         return p;
     }
 
+    /**
+     * Permite retirar las monedas almacenadas en el deposito del vuelto tras una transacción exitosa o un pago fallido.
+     * Extrae las monedas de una en una.
+     * @return {@link Moneda} de valor 100 o la moneda original si el pago es fallido.
+     */
     public Moneda getVuelto() {
         return monVU.get();
     }

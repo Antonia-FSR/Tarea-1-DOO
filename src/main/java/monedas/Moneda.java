@@ -1,5 +1,11 @@
 package monedas;
 
+/**
+ * Clase abstracta que define la base para todas las monedas.
+ * Implementa {@link Comparable} para permitir la comparación de valores entre estas.
+ *
+ * @author Antonia-FSR
+ */
 public abstract class Moneda implements Comparable<Moneda> {
     public Moneda(){
     }
