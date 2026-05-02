@@ -27,21 +27,28 @@ public class MainPruebas {
 
         System.out.println("\n\nProbando compra de CocaCola con Moneda de 500 (Pago Insuficiente):");
         try {
-            Comprador comprador1 = new Comprador(new Moneda100(), 1, exp);
+            Comprador comprador1 = new Comprador(new Moneda500(), 1, exp);
+        } catch (Exception e) {
+            System.out.println(" - Pago insuficiente: " + e.getMessage());
+        }
+
+        System.out.println("\nProbando compra de Super8 con Moneda de 100 (Pago Insuficiente):");
+        try {
+            Comprador comprador2 = new Comprador(new Moneda100(), 5, exp);
         } catch (Exception e) {
             System.out.println(" - Pago insuficiente: " + e.getMessage());
         }
 
         System.out.println("\nProbando compra de CocaCola sin entregar Noneda (Moneda Null):");
         try {
-            Comprador comprador2 = new Comprador(null, 1, exp);
+            Comprador comprador3 = new Comprador(null, 1, exp);
         } catch (Exception e) {
             System.out.println(" - Moneda null: " + e.getMessage());
         }
 
         System.out.println("\nProbando compra de Producto inexistente:");
         try {
-            Comprador comprador3 = new Comprador(new Moneda1000(), 99, exp);
+            Comprador comprador4 = new Comprador(new Moneda1000(), 99, exp);
         } catch (Exception e) {
             System.out.println(" - Selección inválida: " + e.getMessage());
         }
