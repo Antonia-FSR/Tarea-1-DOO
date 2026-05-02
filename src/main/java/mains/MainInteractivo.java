@@ -7,7 +7,13 @@ import expendedor.Expendedor;
 import comprador.Comprador;
 import monedas.*;
 import java.util.Scanner;
-
+/**
+ * Clase main que ejecuta la interfaz interactiva del expendedor.
+ * Permite al usuario seleccionar productos y pagar con distintas monedas a través de la consola.
+ *
+ *
+ * @author jaocSec
+ */
 public class MainInteractivo {
     public static void main(String[] args) {
 
@@ -53,6 +59,11 @@ public class MainInteractivo {
         sc.close();
     }
 
+    /**
+     * Metodo utilitario para instanciar la moneda con el valor ingresado por el usuario.
+     * @param valor Valor de la moneda (100, 500, 1000)
+     * @return una instancia de {@link Moneda} con el mismo valor ingresado o {@code null} si el valor es invalido.
+     */
     private static Moneda crearMoneda(int valor){
         switch(valor){
             case 100:
