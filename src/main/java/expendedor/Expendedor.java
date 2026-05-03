@@ -10,8 +10,8 @@ import excepciones.*;
  * Calcula el vuelto en monedas de 100.
  *
  * @author jaocSec
- * @see productos.Producto
- * @see monedas.Moneda
+ * @see Producto
+ * @see Moneda
  */
 public class Expendedor {
     private Deposito<Bebida> cocacolaD;
@@ -20,6 +20,10 @@ public class Expendedor {
     private Deposito<Dulce> snickersD;
     private Deposito<Dulce> super8D;
     private Deposito<Moneda> monVU;
+
+    private void limpiarVuelto(){
+        while(monVU.get() != null){}
+    }
 
     /**
      * Constructor que inicializa cada deposito y los llena con una cantidad dada.
@@ -55,6 +59,8 @@ public class Expendedor {
     public Producto comprarProducto(Moneda m, int eleccion) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
         Producto p= null;
         int precioProducto= 0;
+
+        limpiarVuelto();
 
         if(m == null) //No existe moneda
         {
