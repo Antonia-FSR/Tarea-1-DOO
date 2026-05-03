@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"comprador"},{"l":"excepciones"},{"l":"expendedor"},{"l":"mains"},{"l":"monedas"},{"l":"productos"}];updateSearchResults();
