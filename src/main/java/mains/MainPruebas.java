@@ -9,6 +9,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class MainPruebas {
+
+    public static void mostrarVueltoError(Expendedor exp) {
+        int vueltoError = 0;
+        Moneda m;
+
+        while ((m = exp.getVuelto()) != null) {
+            vueltoError += m.getValor();
+        }
+
+        if (vueltoError > 0) {
+            System.out.println("Retire su dinero devuelto: $" + vueltoError);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("==== Probando Expendedor ====\n");
 
@@ -30,6 +44,7 @@ public class MainPruebas {
             Comprador comprador1 = new Comprador(new Moneda500(), 1, exp);
         } catch (Exception e) {
             System.out.println(" - Pago insuficiente: " + e.getMessage());
+            mostrarVueltoError(exp);
         }
 
         System.out.println("\nProbando compra de Super8 con Moneda de 100 (Pago Insuficiente):");
@@ -37,6 +52,7 @@ public class MainPruebas {
             Comprador comprador2 = new Comprador(new Moneda100(), 5, exp);
         } catch (Exception e) {
             System.out.println(" - Pago insuficiente: " + e.getMessage());
+            mostrarVueltoError(exp);
         }
 
         System.out.println("\nProbando compra de CocaCola sin entregar Noneda (Moneda Null):");
@@ -44,6 +60,7 @@ public class MainPruebas {
             Comprador comprador3 = new Comprador(null, 1, exp);
         } catch (Exception e) {
             System.out.println(" - Moneda null: " + e.getMessage());
+            mostrarVueltoError(exp);
         }
 
         System.out.println("\nProbando compra de Producto inexistente:");
@@ -51,6 +68,7 @@ public class MainPruebas {
             Comprador comprador4 = new Comprador(new Moneda1000(), 99, exp);
         } catch (Exception e) {
             System.out.println(" - Selección inválida: " + e.getMessage());
+            mostrarVueltoError(exp);
         }
 
         System.out.println("\nProbando excepción: Sin stock (comprar más de lo que queda)");
