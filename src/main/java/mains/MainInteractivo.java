@@ -50,6 +50,16 @@ public class MainInteractivo {
                 System.out.println("Ha comprado un(a): " + c.queSabor());
                 System.out.println("Vuelto: " + c.cuantoVuelto());
             }catch (PagoIncorrectoException | PagoInsuficienteException | NoHayProductoException e){
+
+                int vueltoError = 0;
+                Moneda m;
+                while ((m = exp.getVuelto()) != null) {
+                    vueltoError += m.getValor();
+                }
+                if (vueltoError > 0) {
+                    System.out.println("Retire su dinero devuelto: $" + vueltoError);
+                }
+
                 System.out.println("\nError!: " + e.getMessage());
             }catch (Exception e){
                 System.out.println(e.getMessage());
@@ -65,16 +75,12 @@ public class MainInteractivo {
      * @return una instancia de {@link Moneda} con el mismo valor ingresado o {@code null} si el valor es invalido.
      */
     private static Moneda crearMoneda(int valor){
-        switch(valor){
-            case 100:
-                return new Moneda100();
-            case 500:
-                return new Moneda500();
-            case 1000:
-                return new Moneda1000();
-            default:
-                return null;
-        }
+        return switch (valor) {
+            case 100 -> new Moneda100();
+            case 500 -> new Moneda500();
+            case 1000 -> new Moneda1000();
+            default -> null;
+        };
     }
 }
 
